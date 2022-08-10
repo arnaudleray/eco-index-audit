@@ -84,20 +84,11 @@ function computeWaterConsumptionfromEcoIndex(ecoIndex) {
   return parseFloat((3 + (3 * (50 - ecoIndex)) / 100).toFixed(2));
 }
 
-/**
- * Return true if the current process is run by the root user
- * https://techoverflow.net/2019/11/07/how-to-check-if-nodejs-is-run-by-root/
- * https://techoverflow.net/2019/11/08/how-to-fix-puppetteer-running-as-root-without-no-sandbox-is-not-supported/
- */
-function isCurrentUserRoot() {
-   return process.getuid() == 0; // UID 0 is always root
-}
-
 module.exports = async (url) => {
   const urls = Array.isArray(url) ? url : [url];
   const browser = await puppeteer.launch({
     headless: true,
-    args: isCurrentUserRoot() ? ['--no-sandbox'] : undefined
+    args: ['--no-sandbox']
   });
   const page = await browser.newPage();
 
