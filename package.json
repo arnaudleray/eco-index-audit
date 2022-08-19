@@ -5,8 +5,7 @@
   "main": "src/main.js",
   "bin": "src/cli.js",
   "scripts": {
-    "lint": "eslint src/",
-    "prepare": "husky install"
+    "lint": "eslint src/"
   },
   "repository": {
     "type": "git",
@@ -30,7 +29,6 @@
     "puppeteer": "^13.7.0"
   },
   "devDependencies": {
-    "eslint": "^8.5.0",
-    "husky": "^7.0.4"
+    "eslint": "^8.5.0"
   }
 }
